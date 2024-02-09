@@ -3,8 +3,9 @@ from PIL import Image
 from zoedepth.utils.misc import colorize
 import gradio as gr
 
-# Load the model
-model_zoe_n = torch.hub.load(".", "ZoeD_N", source="local", pretrained=True)
+repo = "isl-org/ZoeDepth"
+# Zoe_N
+model_zoe_n = torch.hub.load(repo, "ZoeD_N", pretrained=True)
 
 # Set device
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
