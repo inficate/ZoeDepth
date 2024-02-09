@@ -10,6 +10,8 @@
 
 [[Paper]](https://arxiv.org/abs/2302.12288)
 
+![teaser](assets/zoedepth-teaser.png)
+
 ## **Table of Contents** <!-- omit in toc -->
 - [**Usage**](#usage)
   - [Using torch hub](#using-torch-hub)
