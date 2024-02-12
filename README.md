@@ -1,3 +1,14 @@
+---
+title: inficate
+emoji: 📏
+colorFrom: gray
+colorTo: gray
+sdk: gradio
+sdk_version: 3.14.0
+app_file: app.py
+pinned: false
+---
+
 # **ZoeDepth: Combining relative and metric depth** (Official implementation)  <!-- omit in toc -->
 [![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/isl-org/ZoeDepth)
 [![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/shariqfarooq/ZoeDepth)
@@ -9,8 +20,6 @@
 > ##### [Shariq Farooq Bhat](https://shariqfarooq123.github.io), [Reiner Birkl](https://www.researchgate.net/profile/Reiner-Birkl), [Diana Wofk](https://dwofk.github.io/), [Peter Wonka](http://peterwonka.net/), [Matthias Müller](https://matthias.pw/)
 
 [[Paper]](https://arxiv.org/abs/2302.12288)
-
-![teaser](assets/zoedepth-teaser.png)
 
 ## **Table of Contents** <!-- omit in toc -->
 - [**Usage**](#usage)
