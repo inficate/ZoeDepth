@@ -14,3 +14,4 @@ dependencies:
       - pillow==9.4.0
       - gradio==4.18.0
       - opencv-python==4.6.0.66
+      - kaleido==0.2.1

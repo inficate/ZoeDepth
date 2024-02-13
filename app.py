@@ -208,4 +208,4 @@ inficate = gr.Interface(
     ]
 )
 
-inficate.launch()
+inficate.launch(share=True)
