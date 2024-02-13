@@ -201,10 +201,10 @@ def to_8_bit(input_image):
 
 inficate = gr.Interface(
     fn=get_depth,
-    inputs=gr.inputs.Image(type="pil", label="Upload Image"),
+    inputs=gr.Image(type="pil", label="Upload Image"),
     outputs=[
-        gr.outputs.Image(type="pil", label="Original Depth Image"),
-        gr.outputs.Image(type="pil", label="Refined Depth Image")
+        gr.Image(type="pil", label="Original Depth Image"),
+        gr.Image(type="pil", label="Refined Depth Image")
     ]
 )
 
