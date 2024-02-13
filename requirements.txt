@@ -1,5 +1,8 @@
 timm==0.6.7
 torch==2.0.1
+torchaudio==2.0.2
+torchdata==0.6.1
+torchtext==0.15.2
 torchvision==0.15.2
 numpy==1.23.5
 pillow==9.4.0
