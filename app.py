@@ -4,6 +4,7 @@ import numpy as np
 import gradio as gr
 from PIL import Image
 from scipy.ndimage import gaussian_filter
+from IPython.display import IFrame
 
 # Zoe_N
 repo = "isl-org/ZoeDepth"
@@ -208,4 +209,5 @@ inficate = gr.Interface(
     ]
 )
 
-inficate.launch(share=True)
+url = inficate.launch(share=True)
+display(IFrame(url, width=700, height=500))
