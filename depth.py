@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 from scipy.ndimage import gaussian_filter
+from IPython.display import clear_output
 
 # Zoe_N
 repo = "isl-org/ZoeDepth"
@@ -11,6 +12,7 @@ model_zoe_n = torch.hub.load(repo, "ZoeD_N", pretrained=True)
 # Set device
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 zoe = model_zoe_n.to(DEVICE)
+clear_output(wait=True)
 
 
 def get_depth(input_image):
