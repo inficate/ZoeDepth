@@ -189,7 +189,7 @@ def get_depth(input_image):
     low_res_scaled_depth = Image.fromarray(_to_8_bit(low_res_scaled_depth), mode='L')
     combined_result = Image.fromarray(_to_8_bit(combined_result), mode='L')
 
-    return low_res_scaled_depth, combined_result
+    return low_res_scaled_depth, combined_result, low_res_scaled_depth, combined_result
 
 
 def _to_8_bit(input_image):
