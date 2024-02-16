@@ -1,5 +1,6 @@
 import torch
 import cv2
+import tempfile
 import numpy as np
 from PIL import Image
 from scipy.ndimage import gaussian_filter
@@ -191,7 +192,15 @@ def get_depth(input_image):
     low_res_scaled_depth = Image.fromarray(_to_8_bit(low_res_scaled_depth), mode='L')
     combined_result = Image.fromarray(_to_8_bit(combined_result), mode='L')
 
-    return low_res_scaled_depth, combined_result, low_res_scaled_depth, combined_result
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.png', dir='.') as tmp_file:
+        low_res_scaled_depth.save(tmp_file.name)
+        low_res_scaled_depth_path = tmp_file.name
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.png', dir='.') as tmp_file:
+        combined_result.save(tmp_file.name)
+        combined_result_path = tmp_file.name
+
+    return low_res_scaled_depth, combined_result, low_res_scaled_depth_path, combined_result_path
 
 
 def _to_8_bit(input_image):
