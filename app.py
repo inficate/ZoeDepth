@@ -5,7 +5,7 @@ from IPython.display import clear_output
 setup_done_file = '/content/setup_done.flag'
 
 if not os.path.exists(setup_done_file):
-    ! pip install --upgrade timm==0.6.7 torch==2.0.1 torchaudio==2.0.2 torchdata==0.6.1 torchtext==0.15.2 torchvision==0.15.2 numpy==1.25.2 pillow==9.4.0 gradio==4.18.0 opencv-python==4.6.0.66 kaleido==0.2.1
+    ! pip install --upgrade --quiet timm==0.6.7 torch==2.0.1 torchaudio==2.0.2 torchdata==0.6.1 torchtext==0.15.2 torchvision==0.15.2 numpy==1.25.2 pillow==9.4.0 gradio==4.18.0 opencv-python==4.6.0.66 kaleido==0.2.1
     clear_output(wait=True)
     ! git lfs install
     ! if [ -d "/content/ZoeDepth" ]; then rm -rf "/content/ZoeDepth"; fi
