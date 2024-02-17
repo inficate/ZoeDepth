@@ -33,6 +33,6 @@ inficate = gr.Interface(
     allow_flagging="never"
 )
 
-display(Javascript('''google.colab.output.setIframeHeight(0, true, {maxHeight: 2000})'''))
+display(Javascript('''google.colab.output.setIframeHeight(0, true, {maxHeight: 3500})'''))
 
-inficate.launch(share=True, height=800)
+inficate.launch(share=True, height=2000)
