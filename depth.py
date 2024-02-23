@@ -190,7 +190,7 @@ def get_depth(input_image):
                        * ((compiled_tiles_list[0] + low_res_scaled_depth)/2)) / 2
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.png', dir='.') as tmp_file:
-        combined_result.save(tmp_file.name)
+        Image.fromarray(combined_result).save(tmp_file.name)
         combined_result_path = tmp_file.name
 
     combined_result_preview = Image.fromarray(_to_8_bit(combined_result), mode='L')
