@@ -25,10 +25,8 @@ inficate = gr.Interface(
     fn=get_depth,
     inputs=gr.Image(type="pil", label="Upload Image"),
     outputs=[
-        gr.Image(type="pil", label="Original Depth Image"),
-        gr.Image(type="pil", label="Refined Depth Image"),
-        gr.File(label="Download the Original Depth Image"),
-        gr.File(label="Download the Refined Depth Image")
+        gr.Image(type="pil", label="Depth Image Preview"),
+        gr.File(label="Download the Depth Image")
     ],
     allow_flagging="never"
 )
