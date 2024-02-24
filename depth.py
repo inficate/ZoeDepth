@@ -1,7 +1,6 @@
 import torch
 import cv2
 import tempfile
-import logging
 import numpy as np
 from PIL import Image
 from scipy.ndimage import gaussian_filter
@@ -189,8 +188,6 @@ def get_depth(input_image):
 
     combined_result = (tiles_difference * compiled_tiles_list[1] + (1 - tiles_difference)
                        * ((compiled_tiles_list[0] + low_res_scaled_depth)/2)) / 2
-
-    logging.info("Image ndarray datatype is: " + input_image.dtype)
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.png', dir='.') as tmp_file:
         Image.fromarray(_to_16_bit(combined_result)).save(tmp_file.name)
