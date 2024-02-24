@@ -1,6 +1,7 @@
 import torch
 import cv2
 import tempfile
+import logging
 import numpy as np
 from PIL import Image
 from scipy.ndimage import gaussian_filter
@@ -189,8 +190,10 @@ def get_depth(input_image):
     combined_result = (tiles_difference * compiled_tiles_list[1] + (1 - tiles_difference)
                        * ((compiled_tiles_list[0] + low_res_scaled_depth)/2)) / 2
 
+    logging.info("Image ndarray datatype is: " + input_image.dtype)
+
     with tempfile.NamedTemporaryFile(delete=False, suffix='.png', dir='.') as tmp_file:
-        Image.fromarray(combined_result).save(tmp_file.name)
+        Image.fromarray(_to_16_bit(combined_result)).save(tmp_file.name)
         combined_result_path = tmp_file.name
 
     combined_result_preview = Image.fromarray(_to_8_bit(combined_result), mode='L')
@@ -202,3 +205,13 @@ def _to_8_bit(input_image):
     normalized_image = cv2.normalize(input_image, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
     equalized_image = cv2.equalizeHist(normalized_image)
     return equalized_image
+
+
+def _to_16_bit(input_image):
+    if input_image.dtype == np.uint16:
+        return input_image
+    else:
+        input_image = np.clip(input_image, 0, np.max(input_image))
+        normalized_image = (input_image - np.min(input_image)) / (np.max(input_image) - np.min(input_image))
+        output_image = (normalized_image * 65535).astype(np.uint16)
+        return output_image
